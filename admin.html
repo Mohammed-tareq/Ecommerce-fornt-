@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="assets/js/userAuth.js"></script>
+    <script type="module">
+        import { auth, onAuthStateChanged } from './assets/js/userAuth.js';
+
+        onAuthStateChanged(auth, (user) => {
+            if (user.email !== "admin@admin.com") {
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <h1>Hi admin</h1>
+    <button class="btn" id="logOutBtn">Log Out</button>
+    <br>
+    <a href="login-register.html">go to login page</a>
+</body>
+
+</html>
