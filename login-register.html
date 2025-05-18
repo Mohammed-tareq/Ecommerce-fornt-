@@ -15,35 +15,6 @@
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="./assets/css/styles.css" />
 
-  <script type="module" src="assets/js/userAuth.js"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyB1u8q8gL6jGZXs6lys4Pzd-C6E4XpMdWU",
-    authDomain: "js-php-nc.firebaseapp.com",
-    projectId: "js-php-nc",
-    storageBucket: "js-php-nc.firebasestorage.app",
-    messagingSenderId: "871514624564",
-    appId: "1:871514624564:web:79bc38e5214fa0b1147061"
-  };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            if (user.email === "admin@admin.com") {
-                window.location.href = "admin.html";
-                alert("Going to Admin Panel");
-            } else {
-                window.location.href = "index.html";
-            }
-        }
-    });
-</script>
-
   <title>Ecommerce Website</title>
 </head>
 
@@ -140,17 +111,17 @@ const firebaseConfig = {
         <div class="login">
           <h3 class="section-title">Login</h3>
 
-          <form action="" class="from grid">
-
-            <input type="email" id="email" placeholder="Your Email" class="form-input">
-
-            <input type="password" id="password" placeholder="Your Password" class="form-input">
-
+          <form action="#"  class="from grid">
+          
+            <input type="email" name="email" placeholder="Your Email" class="form-input" id="email">
+          
+            <input type="password" name="password" placeholder="Your Password" class="form-input" id="password">
+            
             <div class="form-btn">
-              <button class="btn" id="logSubmit">Login</button>
-              <button class="btn" id="googleLog">Google Login</button>
+              <button id="logSubmit" type="submit" class="btn">Login</button>
             </div>
 
+            <button id="googleLog">google</button>
           </form>
         </div>
 
@@ -158,18 +129,18 @@ const firebaseConfig = {
           <h3 class="section-title">Create an Account</h3>
 
           <form action="" class="from grid">
-
-            <input type="text" placeholder="User Name" id="name" class="form-input">
+          
+<!--            <input type="text" placeholder="User Name" name="user name"  id="userName" class="form-input">-->
             <input type="email" placeholder="Your Email" id="registerEmail" class="form-input">
-
+          
             <input type="password" placeholder="Your Password" id="registerPassword" class="form-input">
-            <input type="password" placeholder="Confirm Password" id="confirmPassword" class="form-input">
-
+<!--            <input type="password" placeholder="Confirm Password" id="registerConfirmPassword" class="form-input">-->
+            
             <div class="form-btn">
-              <button class="btn" id="registerBtn">Submit & Register</button>
-              <button class="btn" id="googleSignUp">Google Sign Up</button>
+              <button id="registerBtn" type="submit" class="btn">Submit & Register</button>
             </div>
 
+            <button id="googleRegis" class="btn">google</button>
           </form>
         </div>
 
@@ -300,8 +271,9 @@ const firebaseConfig = {
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!--=============== MAIN JS ===============-->
-  <script src="./assets/js/main.js"></script>
-  <script type="module" src="assets/js/userAuth.js"></script>
+  <script type="module" src="assets/firebase/userAuth.js"></script>
+  <script type="module" src="assets/firebase/addandget/dataBase.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
