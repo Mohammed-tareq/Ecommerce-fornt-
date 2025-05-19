@@ -18,7 +18,12 @@ async function getProducts() {
                 table += `
                <tr">
                <td>${data.ID}</td> 
-                <td>${data.product}</td>
+                <td>${data.title}</td>
+                <td>${data.brand}</td>   
+                <td>${data.policy}</td>
+                <td>${data.size}</td>
+                <td>${data.oldPrice}</td>
+                <td>${data.badge}</td>
                 <td>${data.price}</td>
                 <td>${data.Count}</td>
                 <td>${data.category}</td>
