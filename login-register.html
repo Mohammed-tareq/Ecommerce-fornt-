@@ -35,7 +35,7 @@ const firebaseConfig = {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             if (user.email === "admin@admin.com") {
-                window.location.href = "admin.html";
+                window.location.href = "admin/admin.html";
                 alert("Going to Admin Panel");
             } else {
                 window.location.href = "index.html";
