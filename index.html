@@ -12,6 +12,24 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="./assets/css/styles.css"/>
     <script type="module" src="assets/js/userAuth.js"></script>
+    <script type="module">
+    import { auth, onAuthStateChanged } from "./assets/js/userAuth.js";
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const myAccountLink = document.getElementById("myAccount");
+        const loggedIn = document.getElementById("loggedIn");
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user && myAccountLink) {
+                myAccountLink.style.display = "none";
+            }
+            if (user && loggedIn) {
+                loggedIn.id = "logOutBtn";
+                loggedIn.textContent = "Log out";
+            }
+        });
+    });
+</script>
 
     <title>Ecommerce Website</title>
 
@@ -52,13 +70,13 @@
                     <a href="shop.html" class="nav-link">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a href="accounts.html" class="nav-link">My Account</a>
+                    <a href="accounts.html" id="myAccount" class="nav-link">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a href="compare.html" class="nav-link">Compare</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login-register.html" class="nav-link">Login</a>
+                    <a href="login-register.html" id="loggedIn" class="nav-link">Login</a>
                 </li>
 
             </ul>
