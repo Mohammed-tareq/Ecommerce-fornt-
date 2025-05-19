@@ -126,7 +126,7 @@ function loginUser(e){
             const user = userCredential.user;
             console.log("user =>", user.email);
             if (user.email === "admin@admin.com") {
-                window.location.href = "admin.html";
+                window.location.href = "admin/admin.html";
             } else {
                 window.location.href = "index.html";
             }
