@@ -15,16 +15,6 @@
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="./assets/css/styles.css" />
 
-  <script type="module">
-  import { auth, onAuthStateChanged } from './assets/js/userAuth.js';
-
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "login-register.html";
-    }
-  });
-</script>
-
   <title>Ecommerce Website</title>
 </head>
 
@@ -356,7 +346,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!--=============== MAIN JS ===============-->
-  <script src="./assets/js/main.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
