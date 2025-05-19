@@ -30,6 +30,7 @@ addProductBtn.addEventListener("click", addProductDB);
 //========================================= add function =====================
 async function addProductDB(e) {
     e.preventDefault();
+    console.log("add product");
     try {
         if (!productID.value || !categoryName.value || !productName.value ||
             !priceProduct.value || !productCount.value || !productImg.value ||
