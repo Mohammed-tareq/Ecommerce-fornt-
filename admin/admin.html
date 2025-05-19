@@ -14,25 +14,7 @@
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script type="module" src="assets/js/userAuth.js"></script>
-    <script type="module">
-    import { auth, onAuthStateChanged } from './assets/js/userAuth.js';
 
-    onAuthStateChanged(auth, (user) => {
-        if (!user) {
-            window.location.href = "index.html";
-        }
-
-        else if (user.email !== "admin@admin.com") {
-            window.location.href = "index.html";
-        }
-
-        else {
-            console.log("Admin logged in:", user.email);
-        }
-    });
-</script>
-    <style>
         /* Base styles */
         body {
             font-size: .875rem;
@@ -124,7 +106,6 @@
             --bs-btn-active-bg: #5a23c8;
             --bs-btn-active-border-color: #5a23c8;
         }
-    </style>
 
 </head> 
 <body> 
