@@ -29,7 +29,7 @@ async function fetchOnePage() {
     x = docs[docs.length - 1];
     docs.forEach(doc => {
         let productId = doc.id;
-        productsContainer.innerHTML += setDataToProductItem(doc.data(), productId);
+        setDataToProductItem(doc.data(), productId);
     });
 
     let cartBtns = document.getElementsByClassName('cart-btn');

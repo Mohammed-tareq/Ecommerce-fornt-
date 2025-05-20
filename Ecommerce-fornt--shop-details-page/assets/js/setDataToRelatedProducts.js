@@ -9,7 +9,7 @@ function setDataToRelatedProducts({ category, title, price, oldPrice, badge, rat
     let relatedProductsContainer = document.getElementById('relatedProducts');
     relatedProductsContainer.innerHTML += `<div class="product-item">
                     <div class="product-banner">
-                        <a "details.html?id=${productId}" class="product-imgs">
+                        <a href="details.html?id=${productId}" class="product-imgs">
                             <img src="assets/img/product-9-1.jpg" class="product-img default" alt="product-1">
 
                             <img src="assets/img/product-9-2.jpg" class="product-img hover" alt="product-1">
@@ -38,7 +38,7 @@ function setDataToRelatedProducts({ category, title, price, oldPrice, badge, rat
                     <div class="product-content">
                         <span class="product-category">${category}</span>
 
-                        <a"details.html?id=${productId}">
+                        <a href="details.html?id=${productId}">
                             <h3 class="product-title">
                                 ${title}
                             </h3>

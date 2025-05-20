@@ -1,5 +1,4 @@
 import { collection, db, getDocs, limit, query, where } from "./firebaseFirestore.js";
-import { getDetailsOfProduct } from "./getDetailsOfProduct.js";
 import { setDataToRelatedProducts } from "./setDataToRelatedProducts.js";
 
 async function getRelatedProducts({ category}) {
@@ -7,9 +6,7 @@ async function getRelatedProducts({ category}) {
     const documentSnapshots = await getDocs(q);
     const docs = documentSnapshots.docs;
     docs.forEach(doc => {
-        let queryString = window.location.search;
-        let id = queryString.split('=')[1];
-        setDataToRelatedProducts(doc.data(), id);        
+        setDataToRelatedProducts(doc.data(), doc.id);        
     });
 }
 

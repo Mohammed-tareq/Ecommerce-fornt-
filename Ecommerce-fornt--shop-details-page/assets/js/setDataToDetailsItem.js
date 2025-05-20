@@ -111,6 +111,8 @@ function setDataToDetailsItem({ title, price, oldPrice, badge, category }) {
                 </div>
     `
 }
+
+
 export { setDataToDetailsItem }
 
 

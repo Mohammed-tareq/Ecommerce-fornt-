@@ -1,3 +1,4 @@
+const productsContainer = document.getElementById('products-container');
 function setDataToProductItem({ category, title, badge, price, oldPrice, rating }, productId) {
   let starsHtml = '';
   for (let i = 0; i < 5; i++) {
@@ -7,8 +8,7 @@ function setDataToProductItem({ category, title, badge, price, oldPrice, rating 
   }
 
 
-
-  return `<div class="product-item" >
+  productsContainer.innerHTML += `<div class="product-item" >
         <div class="product-banner">
           <a href="details.html?id=${productId}" class="product-imgs">
             <img src="assets/img/product-9-1.jpg" class="product-img default" alt="product-1">
@@ -54,13 +54,4 @@ function setDataToProductItem({ category, title, badge, price, oldPrice, rating 
 }
 
 
-
-
-const productsContainer = document.getElementById('products-container');
-
-
 export { setDataToProductItem, productsContainer }
-
-
-
-//page 3

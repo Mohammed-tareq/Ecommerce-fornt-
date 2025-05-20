@@ -17,8 +17,8 @@ async function fetchOneProduct(id) {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-        setDataToDetailsItem(docSnap.data());
         getRelatedProducts(docSnap.data());
+        setDataToDetailsItem(docSnap.data());
     } else {
         console.log("No such document!");
     }
