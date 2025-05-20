@@ -12,6 +12,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="assets/js/userAuth.js"></script>
+    <script type="module">
+        import { auth, onAuthStateChanged } from "./assets/js/userAuth.js";
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const myAccountLink = document.getElementById("myAccount");
+            const loggedIn = document.getElementById("loggedIn");
+            const loggedOut = document.getElementById("logOutBtn");
+
+            onAuthStateChanged(auth, (user) => {
+        const myAccountLink = document.getElementById("myAccount");
+        const loginLink = document.getElementById("loggedIn");
+        const logoutLink = document.getElementById("logOutBtn");
+
+        if (user) {
+          // User is logged in
+          if (myAccountLink) myAccountLink.style.display = "block";
+          if (logoutLink) logoutLink.style.display = "block";
+          if (loginLink) loginLink.style.display = "none";
+        } else {
+          // User is logged out
+          if (myAccountLink) myAccountLink.style.display = "none";
+          if (logoutLink) logoutLink.style.display = "none";
+          if (loginLink) loginLink.style.display = "block";
+        }
+      });
+        });
+    </script>
 
     <title>Ecommerce Website</title>
 
@@ -52,14 +80,17 @@
                     <li class="nav-item">
                         <a href="shop.html" class="nav-link">Shop</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="myAccount" style="display: none;">
                         <a href="accounts.html" class="nav-link">My Account</a>
                     </li>
                     <li class="nav-item">
                         <a href="compare.html" class="nav-link">Compare</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="loggedIn" style="display: block;">
                         <a href="login-register.html" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item" id="logOutBtn" style="display: none;">
+                        <a href="#" class="nav-link">Logout</a>
                     </li>
 
                 </ul>
@@ -126,39 +157,39 @@
 
             <div class="categories-content swiper  ">
                 <div class="swiper-wrapper">
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-1.jpg" class="category-img" alt="category-1">
-                        <h3 id="T-shirt" class="category-title">T-shirt</h3>
+                        <h3 class="category-title">T-shirt</h3>
                     </a>
 
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-2.jpg" class="category-img" alt="category-1">
-                        <h3 id="Bags" class="category-title">Bags</h3>
+                        <h3 class="category-title">Bags</h3>
                     </a>
 
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-3.jpg" class="category-img" alt="category-1">
-                        <h3 id="Sandal" class="category-title">Sandal</h3>
+                        <h3 class="category-title">Sandal</h3>
                     </a>
 
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-4.jpg" class="category-img" alt="category-1">
-                        <h3 id="Scarf" class="category-title">Scarf Cap</h3>
+                        <h3 class="category-title">Scarf Cap</h3>
                     </a>
 
-                    <a class="category-item  swiper-slide">
+                    <a href="shop.html" class="category-item  swiper-slide">
                         <img src="assets/img/category-5.jpg" class="category-img" alt="category-1">
-                        <h3 id="Shoes" class="category-title ">Shoes</h3>
+                        <h3 class="category-title ">Shoes</h3>
                     </a>
 
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-6.jpg" class="category-img" alt="category-1">
-                        <h3 id="Pillowcase" class="category-title">Pillowcase</h3>
+                        <h3 class="category-title">Pillowcase</h3>
                     </a>
 
-                    <a class="category-item swiper-slide">
+                    <a href="shop.html" class="category-item swiper-slide">
                         <img src="assets/img/category-7.jpg" class="category-img" alt="category-1">
-                        <h3 id="Jumpsuit" class="category-title">Jumpsuit</h3>
+                        <h3 class="category-title">Jumpsuit</h3>
                     </a>
 
                 </div>
@@ -2538,8 +2569,7 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="./assets/js/main.js"></script>
-    <script type="module" src="assets/js/firebaseFirestore.js"></script>
-    <script type="module" src="assets/js/getCategory.js"></script>
+    <script type="module" src="assets/js/userAuth.js"></script>
 </body>
 
 </html>
