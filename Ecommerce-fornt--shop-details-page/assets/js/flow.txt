@@ -6,3 +6,13 @@ setDataToDetailsItem.js	Renders product detail HTML
 setDataToProductItem.js	Renders product card in product list
 setDataToRelatedProducts.js	Renders card in related section
 search input handler	Searches for product by title
+
+
+
+T-shirt
+Bags
+Sandal
+Scarf Cap
+Shoes
+Pillowcase
+Jumpsuit

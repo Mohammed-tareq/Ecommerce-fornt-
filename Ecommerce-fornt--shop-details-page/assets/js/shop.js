@@ -16,33 +16,33 @@ for (let i = 0; i < btnPagination.length; i++) {
 }
 
 
-//get one page of products 28 product;
-let x;
+let lastDoc;
 async function fetchOnePage() {
     productsContainer.innerHTML = '';
     let q = query(collection(db, 'products'), limit(28));
     if (currentPage > 1) {
-        q = query(collection(db, "products"), startAfter(x), limit(28));
+        q = query(collection(db, "products"), startAfter(lastDoc), limit(28));
     }
     const documentSnapshots = await getDocs(q);
     const docs = documentSnapshots.docs;
-    x = docs[docs.length - 1];
+    lastDoc = docs[docs.length - 1];
     docs.forEach(doc => {
         let productId = doc.id;
-        setDataToProductItem(doc.data(), productId);
+        productsContainer.innerHTML += setDataToProductItem(doc.data(), productId);
     });
 
-    let cartBtns = document.getElementsByClassName('cart-btn');
 
-    for (let i = 0; i < cartBtns.length; i++) {
-        cartBtns[i].addEventListener('click', () => {
+    // let cartBtns = document.getElementsByClassName('cart-btn');
 
-        })
+    // for (let i = 0; i < cartBtns.length; i++) {
+    //     cartBtns[i].addEventListener('click', () => {
 
-    }
+    //     })
+
+    // }
 }
 
-fetchOnePage()
+fetchOnePage();
 
 function setActivePaginationButton(activeId) {
     for (let i = 0; i < btnPagination.length; i++) {
@@ -60,7 +60,6 @@ function setActivePaginationButton(activeId) {
 
 export { fetchOnePage, currentPage }
 
-// page4
 
 
 // import { db, collection, addDoc } from './firebaseFirestore.js'
