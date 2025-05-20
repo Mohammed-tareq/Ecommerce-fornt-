@@ -15,6 +15,35 @@
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="./assets/css/styles.css" />
 
+  <script type="module" src="assets/js/userAuth.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB1u8q8gL6jGZXs6lys4Pzd-C6E4XpMdWU",
+    authDomain: "js-php-nc.firebaseapp.com",
+    projectId: "js-php-nc",
+    storageBucket: "js-php-nc.firebasestorage.app",
+    messagingSenderId: "871514624564",
+    appId: "1:871514624564:web:79bc38e5214fa0b1147061"
+  };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            if (user.email === "admin@admin.com") {
+                window.location.href = "admin/admin.html";
+                alert("Going to Admin Panel");
+            } else {
+                window.location.href = "index.html";
+            }
+        }
+    });
+</script>
+
   <title>Ecommerce Website</title>
 </head>
 
@@ -52,15 +81,18 @@
           <li class="nav-item">
             <a href="shop.html" class="nav-link ">Shop</a>
           </li>
-          <li class="nav-item">
-            <a href="accounts.html" class="nav-link">My Account</a>
-          </li>
-          <li class="nav-item">
-            <a href="compare.html" class="nav-link">Compare</a>
-          </li>
-          <li class="nav-item">
-            <a href="login-register.html" class="nav-link active-link">Login</a>
-          </li>
+          <li class="nav-item" id="myAccount" style="display: none;">
+                        <a href="accounts.html" class="nav-link">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="compare.html" class="nav-link">Compare</a>
+                    </li>
+                    <li class="nav-item" id="loggedIn" style="display: block;">
+                        <a href="login-register.html" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item" id="logOutBtn" style="display: none;">
+                        <a href="#" class="nav-link">Logout</a>
+                    </li>
 
         </ul>
 
@@ -112,13 +144,14 @@
           <h3 class="section-title">Login</h3>
 
           <form action="" class="from grid">
-          
-            <input type="email" placeholder="Your Email" class="form-input">
-          
-            <input type="password" placeholder="Your Password" class="form-input">
-            
+
+            <input type="email" id="email" placeholder="Your Email" class="form-input">
+
+            <input type="password" id="password" placeholder="Your Password" class="form-input">
+
             <div class="form-btn">
-              <button class="btn">Login</button>
+              <button class="btn" id="logSubmit">Login</button>
+              <button class="btn" id="googleLog">Google Login</button>
             </div>
 
           </form>
@@ -128,15 +161,16 @@
           <h3 class="section-title">Create an Account</h3>
 
           <form action="" class="from grid">
-          
-            <input type="text" placeholder="User Name" class="form-input">
-            <input type="email" placeholder="Your Email" class="form-input">
-          
-            <input type="password" placeholder="Your Password" class="form-input">
-            <input type="password" placeholder="Confirm Password" class="form-input">
-            
+
+            <input type="text" placeholder="User Name" id="name" class="form-input">
+            <input type="email" placeholder="Your Email" id="registerEmail" class="form-input">
+
+            <input type="password" placeholder="Your Password" id="registerPassword" class="form-input">
+            <input type="password" placeholder="Confirm Password" id="confirmPassword" class="form-input">
+
             <div class="form-btn">
-              <button class="btn">Submit & Register</button>
+              <button class="btn" id="registerBtn">Submit & Register</button>
+              <button class="btn" id="googleSignUp">Google Sign Up</button>
             </div>
 
           </form>
@@ -270,6 +304,7 @@
 
   <!--=============== MAIN JS ===============-->
   <script src="./assets/js/main.js"></script>
+  <script type="module" src="assets/js/userAuth.js"></script>
 </body>
 
 </html>
