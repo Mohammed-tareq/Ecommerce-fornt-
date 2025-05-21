@@ -14,16 +14,17 @@ let categoryContent = document.getElementById("categoryContent");
         let querySnapshot = await getDocs(categoryCollection);
         let category = '';
 
-
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                category += ` 
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            category += ` 
+                
                     <a href="shop.html" class="category-item swiper-slide">
-                        <img src="${data.img}">
+                        <img src="${data.img}" alt="${data.name}">
                         <h3 class="category-title">${data.name}</h3>
                     </a>
-               `;
-            })
+            `;
+        });
+        
         categoryContent.innerHTML = category;
 
 

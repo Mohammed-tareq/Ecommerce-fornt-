@@ -306,10 +306,15 @@
                                <input type="number" class="form-control" id="policy" placeholder="Enter Count">
                            </div>
                        </div>
-                       <div class="col-md-5 mt-2">
-                           <div class="form-group">
+                       <div class="col-md-8 mt-2 d-flex">
+
+                           <div class="form-group col-md-6">
                                <label for="productImg">Img</label>
-                               <input type="text" class="form-control" id="productImg" placeholder="Enter scr img">
+                               <input type="file" onchange="imgShow.src = window.URL.createObjectURL(this.files[0])" class="form-control" id="productImg" placeholder="Enter scr img">
+                           </div>
+                           <div class="col-md-6 mx-3">
+                               <img width="100px" height="100px" id="imgShow">
+
                            </div>
                        </div>
                        <div class="col-md-12 mt-2">
@@ -343,49 +348,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 
     <!-- Color mode script for Bootstrap 5.3 -->
-    <script>
-      (() => {
-        'use strict';
-        const storedTheme = localStorage.getItem('theme');
-        const getPreferredTheme = () => {
-          if (storedTheme) {
-            return storedTheme;
-          }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        const setTheme = function (theme) {
-          if (theme === 'auto') {
-            document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-          } else {
-            document.documentElement.setAttribute('data-bs-theme', theme);
-          }
-        };
-        setTheme(getPreferredTheme());
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-          if (getPreferredTheme() === 'auto') {
-            setTheme('auto');
-          }
-        });
-        window.addEventListener('DOMContentLoaded', () => {
-          document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-              const theme = toggle.getAttribute('data-bs-theme-value');
-              localStorage.setItem('theme', theme);
-              setTheme(theme);
-              document.querySelectorAll('[data-bs-theme-value]').forEach(el => {
-                el.setAttribute('aria-pressed', 'false');
-                el.classList.remove('active');
-              });
-              toggle.setAttribute('aria-pressed', 'true');
-              toggle.classList.add('active');
-            });
-          });
-        });
-      })();
-    </script>
 
 
-<!--    <script type="module" src="assets/firebase/addandget"></script>-->
+    <script src="../assets/js/adminJs/handelAdmin.js"></script>
 
 </body>
 </html>

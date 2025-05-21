@@ -295,79 +295,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     
     <!-- Color mode script for Bootstrap 5.3 -->
-    <script>
-      (() => {
-        'use strict';
-        const storedTheme = localStorage.getItem('theme');
-        const getPreferredTheme = () => {
-          if (storedTheme) {
-            return storedTheme;
-          }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        const setTheme = function (theme) {
-          if (theme === 'auto') {
-            document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-          } else {
-            document.documentElement.setAttribute('data-bs-theme', theme);
-          }
-        };
-        setTheme(getPreferredTheme());
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-          if (getPreferredTheme() === 'auto') {
-            setTheme('auto');
-          }
-        });
-        window.addEventListener('DOMContentLoaded', () => {
-          document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-              const theme = toggle.getAttribute('data-bs-theme-value');
-              localStorage.setItem('theme', theme);
-              setTheme(theme);
-              document.querySelectorAll('[data-bs-theme-value]').forEach(el => {
-                el.setAttribute('aria-pressed', 'false');
-                el.classList.remove('active');
-              });
-              toggle.setAttribute('aria-pressed', 'true');
-              toggle.classList.add('active');
-            });
-          });
-        });
-      })();
-    </script>
-    
-    <script>
-        // Initialize the chart
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('myChart');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                    datasets: [{
-                        label: 'Sales',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Monthly Sales Overview'
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="../assets/js/adminJs/handelAdmin.js"></script>
+
+
+
 </body>
 </html>
 

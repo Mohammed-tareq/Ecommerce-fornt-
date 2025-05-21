@@ -20,7 +20,7 @@
 // imgGallery();
 /*=============== SWIPER CATEGORIES ===============*/
 setInterval( new Swiper(".categories-content", {
-    spaceBetween: 500,
+    spaceBetween: 50,
     loop: true,
 
     autoplay: {
@@ -74,11 +74,11 @@ setInterval(new Swiper(".new-content", {
         },
         1024: {
             spaceBetween: 50,
-            slidesPerView: 3,
+            slidesPerView: 5,
         },
         1280: {
             spaceBetween: 60,
-            slidesPerView: 3,
+            slidesPerView: 5,
         }
     }
 
