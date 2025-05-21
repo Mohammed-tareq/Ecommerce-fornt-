@@ -1,33 +1,29 @@
-import {app, analytics} from "../dataconfig.js";
+import {app, analytics} from "./dataconfig.js";
 import {getFirestore, collection, getDocs, doc ,deleteDoc} from "https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js";
-
 
 const db = getFirestore(app);
 let productCollection = collection(db, "products");
 let tbody = document.getElementById("tbody")
 
 async function getProducts() {
-
     try {
         let querySnapshot = await getDocs(productCollection);
         let table = '';
         if (!querySnapshot.empty) {
-
+            let counter = 1;
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 table += `
-               <tr">
-               <td>${data.ID}</td> 
+               <tr>
                 <td>${data.title}</td>
                 <td>${data.brand}</td>   
                 <td>${data.policy}</td>
-                <td>${data.size}</td>
                 <td>${data.oldPrice}</td>
                 <td>${data.badge}</td>
                 <td>${data.price}</td>
                 <td>${data.Count}</td>
                 <td>${data.category}</td>
-                <td>${data.Img}</td>
+                <td><img src=" ${data.Img}" width="70px" height="70px"></td>
                 <td><button class="btn btn-bd-primary btn-delete" id="${doc.id}">DELETE</button></td>
 
                </tr>`;
