@@ -8,6 +8,15 @@ import { getAuth , onAuthStateChanged ,createUserWithEmailAndPassword , signInWi
 
 // TODO: Add SDKs for Firebase products that you want to use
 
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBtB_OEijJfGF4xXxqsHnNy7S9w6p3kzKk",
+//     authDomain: "e-commerce-6dfa1.firebaseapp.com",
+//     projectId: "e-commerce-6dfa1",
+//     storageBucket: "e-commerce-6dfa1.firebasestorage.app",
+//     messagingSenderId: "683669349481",
+//     appId: "1:683669349481:web:4a09554ae5e4af47d46ef8",
+//     measurementId: "G-KF27DZN05K"
+//   };
 
 
 const firebaseConfig = {
@@ -70,18 +79,15 @@ if (googleSignUp) {
 
 
 onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = "../index.html";
-    }
-
-    else if (user.email !== "admin@admin.com") {
-        window.location.href = "../index.html";
-    }
-
-    else {
-        console.log("Admin logged in:", user.email);
+    if (user) {
+        console.log(user.email , "is logged in");
+        const uid = user.uid;
+    } else {
+        console.log("user is logged out");
     }
 });
+
+
 
 //================ createUserWithEmailAndPassword==========================
 
@@ -172,30 +178,3 @@ function logOut(e){
 
 export { auth, onAuthStateChanged };
 //===========================================================================
-
-
-window.addEventListener("DOMContentLoaded", () => {
-    const myAccountLink = document.getElementById("myAccount");
-    const loggedIn = document.getElementById("loggedIn");
-    const loggedOut = document.getElementById("logOutBtn");
-
-    onAuthStateChanged(auth, (user) => {
-        const myAccountLink = document.getElementById("myAccount");
-        const loginLink = document.getElementById("loggedIn");
-        const logoutLink = document.getElementById("logOutBtn");
-
-        if (user) {
-            // User is logged in
-            if (myAccountLink) myAccountLink.style.display = "block";
-            if (logoutLink) logoutLink.style.display = "block";
-            if (loginLink) loginLink.style.display = "none";
-        } else {
-            // User is logged out
-            if (myAccountLink) myAccountLink.style.display = "none";
-            if (logoutLink) logoutLink.style.display = "none";
-            if (loginLink) loginLink.style.display = "block";
-        }
-    });
-});
-
-   
