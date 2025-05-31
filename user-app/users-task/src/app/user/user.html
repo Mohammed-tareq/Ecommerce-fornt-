@@ -1,0 +1,17 @@
+<div class="container mt-5 row">
+    @for (item of users; track item.id) {
+    <div class="card position-relative" style="width: 18rem;">
+        @if (item.isVerified) {
+            <i class="fa-solid fa-check text-success position-absolute top-0 end-0 p-2"></i>
+        } @else {
+            
+        }
+        <img src="./profile.jpg" class="card-img-top w-100" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.userName}}</h5>
+            <p class="card-text">{{item.email}}</p>
+            <p class="card-text">{{item.phone}}</p>
+        </div>
+    </div>
+    }
+</div>
